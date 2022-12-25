@@ -4,12 +4,16 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const prisma = new PrismaClient();
-
 const app :Express = express()
-
+const prisma = new PrismaClient()
 const PORT = process.env.PORT
 
+app.get('/', (req : Request, res : Response)=>{
+    res.send({msg: "Hello from Privv Backend"})
+})
 
 
-app.listen(PORT, ()=>{console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`)})
+
+app.listen(PORT, ()=>{
+    console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`)
+})
